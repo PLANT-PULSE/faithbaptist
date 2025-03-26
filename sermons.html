@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sermons - Faith Baptist Church</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for sermons page */
+        .sermon-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid var(--gray-light);
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .filter-select {
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+            background-color: white;
+        }
+        
+        .sermon-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .sermon-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+        }
+        
+        .sermon-tab.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .sermon-list-view .sermon-card {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .sermon-list-view .sermon-card {
+                flex-direction: row;
+            }
+            
+            .sermon-list-view .sermon-img {
+                width: 35%;
+            }
+            
+            .sermon-list-view .sermon-content {
+                width: 65%;
+            }
+        }
+        
+        .sermon-sidebar {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+        
+        .sermon-sidebar h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .recent-sermon {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .recent-sermon:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-sermon img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .recent-sermon-info h5 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .recent-sermon-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .category-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark);
+        }
+        
+        .category-list a:hover {
+            color: var(--primary);
+        }
+        
+        .category-count {
+            background-color: var(--gray-light);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header" class="scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/images/logo.jpg" alt="Faith Baptist Church Logo" width="50" height="50" style="margin-right: 10px; vertical-align: middle;">
+                    Faith Baptist <span>Church</span>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="ministries.html">Ministries</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="sermons.html" class="active">Sermons</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="donate.html" class="donate-btn">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('images/WhatsApp Image 2025-02-25 at 08.09.51_39099767.jpg'); background-size: cover; background-position: center; height: 300px; display: flex; align-items: center; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="text-align: center; color: white;">
+                <h1 style="font-size: 42px; margin-bottom: 15px;">Our Sermons</h1>
+                <div>
+                    <a href="index.html" style="color: white; transition: color 0.3s;">Home</a>
+                    <span style="margin: 0 10px;">/</span>
+                    <span>Sermons</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sermons Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div style="flex: 0 0 30%; max-width: 30%; padding: 0 15px;">
+                    <div class="sermon-sidebar">
+                        <h3>Search Sermons</h3>
+                        <div class="search-box" style="margin-bottom: 20px;">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="sermonSearch" placeholder="Search sermons...">
+                        </div>
+                    </div>
+                    
+                    <div class="sermon-sidebar">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="#" class="category-filter" data-category="all">All Categories <span class="category-count">5</span></a></li>
+                            <li><a href="#" class="category-filter" data-category="Faith">Faith <span class="category-count">1</span></a></li>
+                            <li><a href="#" class="category-filter" data-category="Prayer">Prayer <span class="category-count">1</span></a></li>
+                            <li><a href="#" class="category-filter" data-category="Peace">Peace <span class="category-count">1</span></a></li>
+                            <li><a href="#" class="category-filter" data-category="Kingdom">Kingdom <span class="category-count">1</span></a></li>
+                            <li><a href="#" class="category-filter" data-category="Giving">Giving <span class="category-count">1</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sermon-sidebar">
+                        <h3>Recent Sermons</h3>
+                        <div class="recent-sermon">
+                            <img src="/sermons/Are you ready.webp" alt="Finding Peace in Troubled Times">
+                            <div class="recent-sermon-info">
+                                <h5>Are you ready when the Lord Shall come?</h5>
+                                <p>March 5, 2025</p>
+                            </div>
+                        </div>
+                        <div class="recent-sermon">
+                            <img src="/sermons/heaven.webp" alt="The Power of Prayer">
+                            <div class="recent-sermon-info">
+                                <h5>Heaven, A better country</h5>
+                                <p>February 26, 2025</p>
+                            </div>
+                        </div>
+                        <div class="recent-sermon">
+                            <img src="/sermons/are you worth.webp" alt="Experiencing Kingdom Impact">
+                            <div class="recent-sermon-info">
+                                <h5>Heaven, Are you worth?</h5>
+                                <p>February 19, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div style="flex: 0 0 70%; max-width: 70%; padding: 0 15px;">
+                    <div class="sermon-tabs">
+                        <div class="sermon-tab active" data-view="grid">Grid View</div>
+                        <div class="sermon-tab" data-view="list">List View</div>
+                    </div>
+                    
+                    <div class="sermons-grid" id="sermonsContainer">
+                        <!-- Sermon 1 -->
+                        <div class="sermon-card reveal-item" data-category="Peace">
+                            <div class="sermon-img">
+                                <img src="/sermons/Are you ready.webp" alt="Sermon">
+                                <a href="/sermons/ARE YOU READY WHEN THE LORD SHALL  COME.pdf" class="play-btn sermon-play" data-audio="sermons/finding-peace.mp3" data-title="Finding Peace in Troubled Times">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="sermon-content">
+                                <div class="sermon-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>March 5, 2025</span>
+                                </div>
+
+                                <h4>Are you ready when the Lord shall come?</h4>
+                                <p>Pastor Solomon Ackon explores how  believers can live a righteous life to prepare for the second coming of Jesus Christ.</p>
+                                <div class="sermon-links">
+                                    <a href="/sermons/ARE YOU READY WHEN THE LORD SHALL  COME.pdf" class="sermon-listen" data-audio="sermons/finding-peace.mp3" data-title="Finding Peace in Troubled Times">
+                                        <i class="fas fa-headphones"></i>
+                                        <span>Listen</span>
+                                    </a>
+                                    <a href="/sermons/ARE YOU READY WHEN THE LORD SHALL  COME.pdf" download>
+                                        <i class="fas fa-download"></i>
+                                        <span>Download</span>
+                                    </a>
+                                    <a href="/sermons/ARE YOU READY WHEN THE LORD SHALL  COME.pdf" target="_blank">Read</a>
+                                        <i class="fas fa-book-open"></i>
+                                        <!-- <span>Read</span> -->
+                                    </a>
+                                    <a href="#" class="sermon-share" data-title="Finding Peace in Troubled Times" data-url="sermons/finding-peace.pdf">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sermon 2 -->
+                        <div class="sermon-card reveal-item" data-delay="200" data-category="Prayer">
+                            <div class="sermon-img">
+                                <img src="/sermons/heaven.webp" alt="Sermon">
+                                <a href="/sermons/heaven.webp" class="play-btn sermon-play" data-audio="" data-title="The Power of Prayer">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="sermon-content">
+                                <div class="sermon-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>February 26, 2025</span>
+                                </div>
+                                <h4>Heaven, A better Country</h4>
+                                <p>Discover how life after death for true believers in heaven will be a joy and wonderful moment.</p>
+
+                                <div class="sermon-links">
+                                    <a href="/sermons/HEAVEN; A BETTER COUNTRY.pdf" class="sermon-listen" data-audio="sermons/power-of-prayer.mp3" data-title="The Power of Prayer">
+                                        <i class="fas fa-headphones"></i>
+                                        <span>Listen</span>
+                                    </a>
+                                    <a href="/sermons/HEAVEN; A BETTER COUNTRY.pdf" download>
+                                        <i class="fas fa-download"></i>
+                                        <span>Download</span>
+                                    </a>
+                                    <a href="/sermons/HEAVEN; A BETTER COUNTRY.pdf" target="_blank">Read</a>
+                                        <i class="fas fa-book-open"></i>
+                                        <!-- <span>Read</span> -->
+                                    </a>
+                                    <a href="#" class="sermon-share" data-title="The Power of Prayer" data-url="sermons/power-of-prayer.pdf">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sermon 3 -->
+                        <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                            <div class="sermon-img">
+                                <img src="/sermons/are you worth.webp" alt="Sermon">
+                                <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="sermon-content">
+                                <div class="sermon-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>February 19, 2025</span>
+                                </div>
+                                <h4>Heaven, Are you worth?</h4>
+                                <p>Pastor Solomon Ackon shares insights on believers worthiness for heaven when Jesus Christ comes the second time</p>
+                                <div class="sermon-links">
+                                    <a href="/sermons/HEAVEN; ARE YOU WORTH  IT.pdf" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                        <i class="fas fa-headphones"></i>
+                                        <span>Listen</span>
+                                    </a>
+                                    <a href="/sermons/HEAVEN; ARE YOU WORTH  IT.pdf" download>
+                                        <i class="fas fa-download"></i>
+                                        <span>Download</span>
+                                    </a>
+                                    <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                        <a href="/sermons/HEAVEN; ARE YOU WORTH  IT.pdf" target="_blank">Read</a>
+                                        <i class="fas fa-book-open"></i>
+                                        <!-- <span>Read</span> -->
+                                    </a>
+                                    <a href="#" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sermon 4 -->
+                        <div class="sermon-card reveal-item" data-category="Faith">
+                            <div class="sermon-img">
+                                <img src="/sermons/jesus saves.webp" alt="Sermon">
+                                <a href="#" class="play-btn sermon-play" data-audio="sermons/walking-in-faith.mp3" data-title="Walking in Faith">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="sermon-content">
+                                <div class="sermon-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>February 12, 2025</span>
+                                </div>
+                                <h4>Jesus Saves</h4>
+                                <p>"But God demonstrates his own love for us in this: While we were still sinners, Christ died for us." _Romans 5:8[NIV]</p>
+                                <div class="sermon-links">
+                                    <a href="/sermons/Jesus Saves.docx" class="sermon-listen" data-audio="" data-title="Walking in Faith">
+                                        <i class="fas fa-headphones"></i>
+                                        <span>Listen</span>
+                                    </a>
+                                    <a href="/sermons/Jesus Saves.docx" download>
+                                        <i class="fas fa-download"></i>
+                                        <span>Download</span>
+                                    </a>
+                                    <!-- <a href="#" class="sermon-read" data-pdf="sermons/walking-in-faith.pdf" data-title="Walking in Faith"> -->
+                                        <a href="/sermons/Jesus Saves.docx" target="_blank">Read</a
+                                            <i class="fas fa-book-open"></i>
+                                        <!-- <span>Read</span> -->
+                                    </a>
+                                    <a href="/sermons/Jesus Saves.docx" class="sermon-share" data-title="Walking in Faith" data-url="sermons/walking-in-faith.pdf">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                                                <!-- Sermon 3 -->
+                                                <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                    <div class="sermon-img">
+                                                        <img src="/sermons/MESSAGE.webp" alt="Sermon">
+                                                        <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                            <i class="fas fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="sermon-content">
+                                                        <div class="sermon-date">
+                                                            <i class="fas fa-calendar"></i>
+                                                            <span>February 19, 2025</span>
+                                                        </div>
+                                                        <h4>MESSAGE OF THE CROSS LEAD HYMN</h4>
+                                                        <p>"For the message of the cross is foolishness to those who are perishing, but to us who are being saved it is the power of God." _1 Corinthians 1:18</p>
+                                                        <div class="sermon-links">
+                                                            <a href="/sermons/MESSAGE OF THE CROSS LEAD   HYMN.docx" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                <i class="fas fa-headphones"></i>
+                                                                <span>Listen</span>
+                                                            </a>
+                                                            <a href="/sermons/MESSAGE OF THE CROSS LEAD   HYMN.docx" download>
+                                                                <i class="fas fa-download"></i>
+                                                                <span>Download</span>
+                                                            </a>
+                                                            <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                <a href="/sermons/MESSAGE OF THE CROSS LEAD   HYMN.docx" target="_blank">Read</a>
+                                                                <i class="fas fa-book-open"></i>
+                                                                <!-- <span>Read</span> -->
+                                                            </a>
+                                                            <a href="#" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Share</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                             <!-- Sermon 3 -->
+                                                <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                    <div class="sermon-img">
+                                                        <img src="/sermons/BIBLE.webp" alt="Sermon">
+                                                        <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                            <i class="fas fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="sermon-content">
+                                                        <div class="sermon-date">
+                                                            <i class="fas fa-calendar"></i>
+                                                            <span>February 19, 2025</span>
+                                                        </div>
+                                                        <h4>MY BIBLE FOR A ROADMAP</h4>
+                                                        <p>"Your word is a lamp for my feet, a light on my path." _Psalm 119:105</p>
+                                                      <div class="sermon-links">
+                                                            <a href="/sermons/MY BIBLE FOR A ROAD MAP.docx" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                <i class="fas fa-headphones"></i>
+                                                                <span>Listen</span>
+                                                            </a>
+                                                            <a href="/sermons/MY BIBLE FOR A ROAD MAP.docx" download>
+                                                                <i class="fas fa-download"></i>
+                                                                <span>Download</span>
+                                                            </a>
+                                                            <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                <a href="/sermons/MY BIBLE FOR A ROAD MAP.docx" target="_blank">Read</a>
+                                                                <i class="fas fa-book-open"></i>
+                                                                <!-- <span>Read</span> -->
+                                                            </a>
+                                                            <a href="/sermons/MY BIBLE FOR A ROAD MAP.docx" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Share</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                                                             <!-- Sermon 3 -->
+                                                                                             <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                                                              <div class="sermon-img">
+                                                                                                    <img src="/sermons/soul.webp" alt="Sermon">
+                                                                                                    <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                                                                        <i class="fas fa-play"></i>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div class="sermon-content">
+                                                                                                    <div class="sermon-date">
+                                                                                                        <i class="fas fa-calendar"></i>
+                                                                                                        <span>February 19, 2025</span>
+                                                                                                    </div>
+                                                                                                    <h4>Soul Winners instruction class outline and schedule of study segments</h4>
+                                                                                                    <p>"Therefore, go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy 
+                                                                                                        Spirit, and teaching them to obey everything I have commanded you." _Mattew 28:19-20[NIV]</p>
+                                                                                                  <div class="sermon-links">
+                                                                                                      <a href="/sermons/soul winners instruction class outline and schedule of study segments.docx" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                                                            <i class="fas fa-headphones"></i>
+                                                                                                            <span>Listen</span>
+                                                                                                        </a>
+                                                                                                        <a href="/sermons/soul winners instruction class outline and schedule of study segments.docx" download>
+                                                                                                            <i class="fas fa-download"></i>
+                                                                                                            <span>Download</span>
+                                                                                                        </a>
+                                                                                                        <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                                                            <a href="/sermons/soul winners instruction class outline and schedule of study segments.docx" target="_blank">Read</a>
+                                                                                                            <i class="fas fa-book-open"></i>
+                                                                                                            <!-- <span>Read</span> -->
+                                                                                                        </a>
+                                                                                                        <a href="/sermons/soul winners instruction class outline and schedule of study segments.docx" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                                                            <i class="fas fa-share"></i>
+                                                                                                            <span>Share</span>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                                                                         <!-- Sermon 3 -->
+                                                <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                    <div class="sermon-img">
+                                                        <img src="/sermons/handbook.webp" alt="Sermon">
+                                                        <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                            <i class="fas fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="sermon-content">
+                                                        <div class="sermon-date">
+                                                            <i class="fas fa-calendar"></i>
+                                                            <span>February 19, 2025</span>
+                                                        </div>
+                                                        <h4>Teacher's Handbook</h4>
+                                                        <p>"All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training in righteousness." -2 Timothy 3:16[NIV]</p>
+                                                      <div class="sermon-links">
+                                                            <a href="/sermons/Teachers handbook.docx" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                <i class="fas fa-headphones"></i>
+                                                                <span>Listen</span>
+                                                            </a>
+                                                            <a href="/sermons/Teachers handbook.docx" download>
+                                                                <i class="fas fa-download"></i>
+                                                                <span>Download</span>
+                                                            </a>
+                                                            <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                <a href="/sermons/Teachers handbook.docx" target="_blank">Read</a>
+                                                                <i class="fas fa-book-open"></i>
+                                                                <!-- <span>Read</span> -->
+                                                            </a>
+                                                            <a href="/sermons/Teachers handbook.docx" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Share</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+
+                                                                                         <!-- Sermon 3 -->
+                                                                                         <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                                                            <div class="sermon-img">
+                                                                                                <img src="/sermons/hope.webp" alt="Sermon">
+                                                                                                <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                                                                    <i class="fas fa-play"></i>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                            <div class="sermon-content">
+                                                                                                <div class="sermon-date">
+                                                                                                    <i class="fas fa-calendar"></i>
+                                                                                                    <span>February 19, 2025</span>
+                                                                                                </div>
+                                                                                                <h4>The Hope Worthy Announcement</h4>
+                                                                                                <p>"For I am not ashamed of the gosple, because it is the power of God that brings salvation to everyone who believs...." _Romans 1:16 [NIV]</p>
+                                                                                              <div class="sermon-links">
+                                                                                                    <a href="/sermons/THE HOPE-WORTHY ANNOUNCEMENT.pdf" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                                                        <i class="fas fa-headphones"></i>
+                                                                                                        <span>Listen</span>
+                                                                                                    </a>
+                                                                                                    <a href="/sermons/THE HOPE-WORTHY ANNOUNCEMENT.pdf" download>
+                                                                                                        <i class="fas fa-download"></i>
+                                                                                                        <span>Download</span>
+                                                                                                    </a>
+                                                                                                    <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                                                        <a href="/sermons/THE HOPE-WORTHY ANNOUNCEMENT.pdf" target="_blank">Read</a>
+                                                                                                        <i class="fas fa-book-open"></i>
+                                                                                                        <!-- <span>Read</span> -->
+                                                                                                    </a>
+                                                                                                    <a href="/sermons/THE HOPE-WORTHY ANNOUNCEMENT.pdf" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                                                        <i class="fas fa-share"></i>
+                                                                                                        <span>Share</span>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                                                                     <!-- Sermon 3 -->
+                                                <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                    <div class="sermon-img">
+                                                        <img src="/sermons/reconciliation.webp" alt="Sermon">
+                                                        <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                            <i class="fas fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="sermon-content">
+                                                        <div class="sermon-date">
+                                                            <i class="fas fa-calendar"></i>
+                                                            <span>February 19, 2025</span>
+                                                        </div>
+                                                        <h4>The Message Of Reconciliation</h4>
+                                                        <p>"God was reconciling the world to himself in Christ, not counting people's sins against them.
+                                                             And he has committed to us the message of reconciliation." -2 Corinthians 5:19 [NIV]</p>
+                                                      <div class="sermon-links">
+                                                            <a href="/sermons/THE MESSAGE OF RECONCILIATION.docx" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                <i class="fas fa-headphones"></i>
+                                                                <span>Listen</span>
+                                                            </a>
+                                                            <a href="/sermons/THE MESSAGE OF RECONCILIATION.docx" download>
+                                                                <i class="fas fa-download"></i>
+                                                                <span>Download</span>
+                                                            </a>
+                                                            <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                <a href="/sermons/THE MESSAGE OF RECONCILIATION.docx" target="_blank">Read</a>
+                                                                <i class="fas fa-book-open"></i>
+                                                                <!-- <span>Read</span> -->
+                                                            </a>
+                                                            <a href="/sermons/THE MESSAGE OF RECONCILIATION.docx" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Share</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                                                             <!-- Sermon 3 -->
+                                                                                             <div class="sermon-card reveal-item" data-delay="400" data-category="Kingdom">
+                                                                                                <div class="sermon-img">
+                                                                                                    <img src="/sermons/missionary note.webp" alt="Sermon">
+                                                                                                    <a href="#" class="play-btn sermon-play" data-audio="sermons/kingdom-impact.mp3" data-title="Experiencing Kingdom Impact">
+                                                                                                        <i class="fas fa-play"></i>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div class="sermon-content">
+                                                                                                    <div class="sermon-date">
+                                                                                                        <i class="fas fa-calendar"></i>
+                                                                                                        <span>February 19, 2025</span>
+                                                                                                    </div>
+                                                                                                    <h4>The Missionary's Note</h4>
+                                                                                                    <p>"Go into all the world and preach the gosple to all creation." -Mattew 16:15[NIV]</p>
+                                                                                                  <div class="sermon-links">
+                                                                                                        <a href="/sermons/THE MISSIONARY'S NOTE.pdf" class="sermon-listen" data-audio="" data-title="Experiencing Kingdom Impact">
+                                                                                                            <i class="fas fa-headphones"></i>
+                                                                                                            <span>Listen</span>
+                                                                                                        </a>
+                                                                                                        <a href="/sermons/THE MISSIONARY'S NOTE.pdf" download>
+                                                                                                            <i class="fas fa-download"></i>
+                                                                                                            <span>Download</span>
+                                                                                                        </a>
+                                                                                                        <!-- <a href="#" class="sermon-read" data-pdf="sermons/kingdom-impact.pdf" data-title="Experiencing Kingdom Impact"> -->
+                                                                                                            <a href="/sermons/THE MISSIONARY'S NOTE.pdf" target="_blank">Read</a>
+                                                                                                            <i class="fas fa-book-open"></i>
+                                                                                                            <!-- <span>Read</span> -->
+                                                                                                        </a>
+                                                                                                        <a href="/sermons/THE MISSIONARY'S NOTE.pdf" class="sermon-share" data-title="Experiencing Kingdom Impact" data-url="sermons/kingdom-impact.pdf">
+                                                                                                            <i class="fas fa-share"></i>
+                                                                                                            <span>Share</span>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                        
+                        <!-- Sermon 5 -->
+                        <div class="sermon-card reveal-item" data-delay="200" data-category="Giving">
+                            <div class="sermon-img">
+                                <img src="/sermons/justified.webp" alt="Sermon">
+                                <a href="#" class="play-btn sermon-play" data-audio="sermons/grace-of-giving.mp3" data-title="The Grace of Giving">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="sermon-content">
+                                <div class="sermon-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>February 5, 2025</span>
+                                </div>
+                                <h4>Justified; An illustrative drama playbook by Pastor Solomon Kwesi Ackon</h4>
+                                <p>"For our struggle is not against flesh and blol food, but against the rulers, against the authorities, against the powers
+                                     of the dark word and against the spirituarce of evil in the heavenly realms." _Ephesians 6:12[NIV]</p>
+                                <div class="sermon-links">
+                                    <a href="/sermons/JUSTIFIED; AN ILLUSTRATIVE DRAMA PLAYBOOK BY SOLOMON KWESI ACKON.pdf" class="sermon-listen" data-audio="sermons/grace-of-giving.mp3" data-title="The Grace of Giving">
+                                        <i class="fas fa-headphones"></i>
+                                        <span>Listen</span>
+                                    </a>
+                                    <a href="/sermons/JUSTIFIED; AN ILLUSTRATIVE DRAMA PLAYBOOK BY SOLOMON KWESI ACKON.pdf" download>
+                                        <i class="fas fa-download"></i>
+                                        <span>Download</span>
+                                    </a>
+                                    <!-- <a href="/sermons/ju" class="sermon-read" data-pdf="sermons/grace-of-giving.pdf" data-title="The Grace of Giving"> -->
+                                        <a href="/sermons/JUSTIFIED; AN ILLUSTRATIVE DRAMA PLAYBOOK BY SOLOMON KWESI ACKON.pdf" target="_blank">Read</a>
+                                        <i class="fas fa-book-open"></i>
+                                        <!-- <span>Read</span> -->
+                                    </a>
+                                    <a href="/sermons/JUSTIFIED; AN ILLUSTRATIVE DRAMA PLAYBOOK BY SOLOMON KWESI ACKON.pdf" class="sermon-share" data-title="The Grace of Giving" data-url="sermons/grace-of-giving.pdf">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>Faith Baptist Church</h4>
+                    <p>A place of worship, community, and spiritual growth where everyone is welcome.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/543957330"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h5>Service Times</h5>
+                    <ul>
+                        <li><a href="index.html#services">Sunday: 8:00 AM - 11:00 AM</a></li>
+                        <li><a href="index.html#services">Wednesday: 7:00 PM - 9:00 PM</a></li>
+                        <li><a href="index.html#services">Friday: 7:00 PM - 9:00 PM</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates and announcements.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Faith Baptist Church. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Player Modal -->
+    <div id="audioPlayerModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 500px; width: 90%;">
+            <h3 id="audioTitle" style="margin-bottom: 20px; text-align: center;"></h3>
+            <audio id="audioPlayer" controls style="width: 100%; margin-bottom: 20px;"></audio>
+            <button id="closeAudioModal" class="btn btn-primary" style="display: block; margin: 0 auto;">Close</button>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 500px; width: 90%;">
+            <h3 style="margin-bottom: 20px; text-align: center;">Share Sermon</h3>
+            <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+                <a href="#" id="shareFacebook" class="social-share-btn" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #3b5998;">
+                    <i class="fab fa-facebook-f" style="font-size: 24px; margin-bottom: 5px;"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="#" id="shareTwitter" class="social-share-btn" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #1da1f2;">
+                    <i class="fab fa-twitter" style="font-size: 24px; margin-bottom: 5px;"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" id="shareWhatsapp" class="social-share-btn" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #25d366;">
+                    <i class="fab fa-whatsapp" style="font-size: 24px; margin-bottom: 5px;"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="#" id="shareEmail" class="social-share-btn" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #ea4335;">
+                    <i class="fas fa-envelope" style="font-size: 24px; margin-bottom: 5px;"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+            <button id="closeShareModal" class="btn btn-primary" style="display: block; margin: 0 auto;">Close</button>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfViewerModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background-color: white; padding: 20px; border-radius: 10px; width: 90%; height: 90%; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3 id="pdfTitle"></h3>
+                <button id="closePdfModal" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+            </div>
+            <iframe id="pdfViewer" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Audio player modal
+            const audioPlayerModal = document.getElementById('audioPlayerModal');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioTitle = document.getElementById('audioTitle');
+            const closeAudioModal = document.getElementById('closeAudioModal');
+
+            // Share modal
+            const shareModal = document.getElementById('shareModal');
+            const shareFacebook = document.getElementById('shareFacebook');
+            const shareTwitter = document.getElementById('shareTwitter');
+            const shareWhatsapp = document.getElementById('shareWhatsapp');
+            const shareEmail = document.getElementById('shareEmail');
+            const closeShareModal = document.getElementById('closeShareModal');
+
+            // PDF viewer modal
+            const pdfViewerModal = document.getElementById('pdfViewerModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const pdfTitle = document.getElementById('pdfTitle');
+            const closePdfModal = document.getElementById('closePdfModal');
+
+            // Play sermon audio
+            const sermonPlayButtons = document.querySelectorAll('.sermon-play, .sermon-listen');
+            sermonPlayButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const audioSrc = this.getAttribute('data-audio');
+                    const title = this.getAttribute('data-title');
+                    
+                    audioPlayer.src = audioSrc;
+                    audioTitle.textContent = title;
+                    audioPlayerModal.style.display = 'flex';
+                    audioPlayer.play();
+                });
+            });
+
+            // Close audio modal
+            closeAudioModal.addEventListener('click', function() {
+                audioPlayer.pause();
+                audioPlayerModal.style.display = 'none';
+            });
+
+            // Share sermon
+            const sermonShareButtons = document.querySelectorAll('.sermon-share');
+            sermonShareButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const title = this.getAttribute('data-title');
+                    const url = window.location.origin + '/' + this.getAttribute('data-url');
+                    
+                    // Set up share links
+                    shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    shareTwitter.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+                    shareWhatsapp.href = `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`;
+                    shareEmail.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent('Check out this sermon: ' + url)}`;
+                    
+                    shareModal.style.display = 'flex';
+                });
+            });
+
+            // Close share modal
+            closeShareModal.addEventListener('click', function() {
+                shareModal.style.display = 'none';
+            });
+
+            // View PDF
+            const sermonReadButtons = document.querySelectorAll('.sermon-read');
+            sermonReadButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pdfSrc = this.getAttribute('data-pdf');
+                    const title = this.getAttribute('data-title');
+                    
+                    pdfViewer.src = pdfSrc;
+                    pdfTitle.textContent = title;
+                    pdfViewerModal.style.display = 'flex';
+                });
+            });
+
+            // Close PDF modal
+            closePdfModal.addEventListener('click', function() {
+                pdfViewerModal.style.display = 'none';
+            });
+
+            // Close modals when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === audioPlayerModal) {
+                    audioPlayer.pause();
+                    audioPlayerModal.style.display = 'none';
+                }
+                if (e.target === shareModal) {
+                    shareModal.style.display = 'none';
+                }
+                if (e.target === pdfViewerModal) {
+                    pdfViewerModal.style.display = 'none';
+                }
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('sermonSearch');
+            const sermonCards = document.querySelectorAll('.sermon-card');
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                sermonCards.forEach(card => {
+                    const title = card.querySelector('h4').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // Category filtering
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all filters
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    sermonCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // View toggle (grid/list)
+            const viewTabs = document.querySelectorAll('.sermon-tab');
+            const sermonsContainer = document.getElementById('sermonsContainer');
+            
+            viewTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    viewTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const view = this.getAttribute('data-view');
+                    
+                    if (view === 'list') {
+                        sermonsContainer.classList.add('sermon-list-view');
+                    } else {
+                        sermonsContainer.classList.remove('sermon-list-view');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

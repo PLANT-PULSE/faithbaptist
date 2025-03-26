@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministries - Faith Baptist Church</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for ministries page */
+        .ministry-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .ministry-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .ministry-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(93, 59, 140, 0.1);
+            color: var(--primary);
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .ministry-details {
+            margin: 20px 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .detail-item i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .join-ministry {
+            background-color: var(--gray-light);
+        }
+        
+        .join-content {
+            margin-bottom: 30px;
+        }
+        
+        .cta-section {
+            background-image: url('images/WhatsApp Image 2025-02-25 at 08.09.51_39099767.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header" class="scrolled">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/images/logo.jpg" alt="Faith Baptist Church Logo" width="50" height="50" style="margin-right: 10px; vertical-align: middle;">
+                    Faith Baptist <span>Church</span>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="ministries.html" class="active">Ministries</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="donate.html" class="donate-btn">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('images/WhatsApp Image 2025-02-25 at 08.09.51_39099767.jpg'); background-size: cover; background-position: center; height: 300px; display: flex; align-items: center; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="text-align: center; color: white;">
+                <h1 style="font-size: 42px; margin-bottom: 15px;">Our Ministries</h1>
+                <div>
+                    <a href="index.html" style="color: white; transition: color 0.3s;">Home</a>
+                    <span style="margin: 0 10px;">/</span>
+                    <span>Ministries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h6 class="reveal-top">SERVING TOGETHER</h6>
+                <h2 class="reveal-top">Our Church Ministries</h2>
+                <p class="reveal-top">Discover the various ways you can connect, serve, and grow within our church community</p>
+            </div>
+
+            <div class="row" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+                <div class="ministry-card reveal-item">
+                    <div class="ministry-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Children's Ministry</h3>
+                    <p>Our children's ministry provides a safe, fun environment where children can learn about God's love through age-appropriate activities, Bible stories, and worship.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Sundays: 9:00 AM - 12:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: Mrs. Evelyn Ackon </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card reveal-item" data-delay="200">
+                    <div class="ministry-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Youth Ministry</h3>
+                    <p>Our youth ministry is dedicated to helping teenagers grow in their faith through Bible study, worship, fellowship, and service opportunities in a supportive community.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Fridays: 6:00 PM - 8:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: Brother Garry Noah Ackon </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card reveal-item" data-delay="400">
+                    <div class="ministry-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music Ministry</h3>
+                    <p>Our Music ministry leads the congregation in praise and worship through music, creating an atmosphere where people can encounter God's presence.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Practice: Thursdays 7:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: Paulina Cudjoe </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card reveal-item">
+                    <div class="ministry-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Outreach Ministry</h3>
+                    <p>Our outreach ministry serves the local community through various initiatives, showing God's love in practical ways and meeting the needs of those around us.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Monthly Events</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: Pastor Solomon Kwesi Ackon </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card reveal-item" data-delay="200">
+                    <div class="ministry-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Women Mission Union  </h3>
+                    <p>Our Bible study groups provide opportunities for deeper study of God's Word in a small group setting, fostering spiritual growth and community.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Various Times</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: Madam Hannah Koufie</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card reveal-item" data-delay="200">
+                    <div class="ministry-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Men Mission Union  </h3>
+                    <p>Our Bible study groups provide opportunities for deeper study of God's Word in a small group setting, fostering spiritual growth and community.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Various Times</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: Brother Eric Cudjoe  </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card reveal-item" data-delay="400">
+                    <div class="ministry-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Adult Ministry</h3>
+                    <p>Our Adult Ministry is made of up adults and the old age people who are in the church.</p>
+                    <div class="ministry-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Wednesdays: 6:00 AM & 7:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>Leader: John Setor </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join a Ministry Section -->
+    <section class="join-ministry section-padding">
+        <div class="container">
+            <div class="row" style="display: flex; flex-wrap: wrap; align-items: center;">
+                <div class="join-content reveal-left" style="flex: 0 0 100%; max-width: 100%; padding: 0 15px; margin-bottom: 30px;">
+                    <h6>GET INVOLVED</h6>
+                    <h2>Find Your Place to Serve</h2>
+                    <p class="lead">We believe that everyone has unique gifts and talents that can be used to serve God and others. Whether you're interested in working with children, leading worship, or serving in the community, there's a place for you at Faith Baptist Church.</p>
+                    <p>Joining a ministry is a great way to grow in your faith, develop new skills, and build meaningful relationships with others in the church. We provide training and support for all our ministry volunteers.</p>
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">Join a Ministry</a>
+                        <a href="index.html#contact" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+                <div class="join-image reveal-right" style="flex: 0 0 100%; max-width: 100%; padding: 0 15px;">
+                    <img src="/images/ME.jpg" alt="Volunteer" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-content reveal-item">
+                <h2>Ready to Get Involved?</h2>
+                <p>Join one of our ministries today and make a difference in our church and community.</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">Join a Ministry</a>
+                    <a href="index.html#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>Faith Baptist Church</h4>
+                    <p>A place of worship, community, and spiritual growth where everyone is welcome.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/543957330"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="ministries.html">Ministries</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h5>Service Times</h5>
+                    <ul>
+                        <li><a href="index.html#services">Sunday: 8:00 AM - 11:00 AM</a></li>
+                        <li><a href="index.html#services">Wednesday: 7:00 PM - 9:00 PM</a></li>
+                        <li><a href="index.html#services">Friday: 7:00 PM - 9:00 PM</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates and announcements.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Faith Baptist Church. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
