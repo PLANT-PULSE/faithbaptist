@@ -1,0 +1,4 @@
+2025-03-16 11:18:01: [2] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\church\config.php:52) in C:\xampp\htdocs\church\admin\donations.php on line 12
+2025-03-16 21:49:35: Uncaught Exception: Table 'church.events' doesn't exist in C:\xampp\htdocs\church\admin\events.php on line 39
+2025-03-16 21:49:45: Uncaught Exception: Table 'church.events' doesn't exist in C:\xampp\htdocs\church\admin\events.php on line 39
+2025-03-16 21:49:46: Uncaught Exception: Table 'church.events' doesn't exist in C:\xampp\htdocs\church\admin\events.php on line 39

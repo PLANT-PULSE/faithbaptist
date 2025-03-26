@@ -1,0 +1,26 @@
+2025-03-16 09:25:25: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:25:25: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:30:05: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:30:05: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:35:29: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:35:29: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:52:38: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 09:52:39: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 10:23:25: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 10:23:25: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 10:28:48: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 10:28:48: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:06:39: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:06:39: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:07:12: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:07:12: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:07:53: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:07:53: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:08:58: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:08:58: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:14:02: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:14:02: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:14:03: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:14:03: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:20:56: [2] Undefined variable $conn in C:\xampp\htdocs\church\index.php on line 394
+2025-03-16 20:20:56: Uncaught Exception: Call to a member function query() on null in C:\xampp\htdocs\church\index.php on line 394
